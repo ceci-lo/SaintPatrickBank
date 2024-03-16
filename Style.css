@@ -32,6 +32,9 @@ justify-content:center;
     margin-left: 0px;
     margin-right: 0px;
 }
+.labelForm {
+    display: flex !important;
+}
 
 /*MEDIA QUERY*/
 

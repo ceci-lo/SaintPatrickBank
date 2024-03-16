@@ -2,7 +2,7 @@
 .lado_izquierdo {
 background-color: rgba(0,87,88,255);
 color: beige;
-height: 600px;
+height: 100%;
 display:flex;
 flex-direction: column;
 align-items: center;
@@ -31,14 +31,24 @@ justify-content:center;
 .text-center{
     margin-left: 0px;
     margin-right: 0px;
+    height: 100%;
+}
+body{
+    height: 1000px;
 }
 .labelForm {
     display: flex !important;
 }
 
+.box-1-2{
+    height: 100%;
+}
 /*MEDIA QUERY*/
 
 @media screen and (max-width: 1300px) {
+    .text-center{
+        height: 100%;
+    }
     
     .lado_izquierdo{
         padding-right: 40px;

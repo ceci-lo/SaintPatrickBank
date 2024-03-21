@@ -26,10 +26,6 @@ function cargarJson () {
   
 }
 
-
-
-
-
 /** Busca un usuario de JSON y compara con lo que puso el usuario
  * return boolean 
  * parametro usuario puesto por el usuario 
@@ -67,7 +63,7 @@ function leer  () {
     usuario = document.querySelector(".emailInput").value ;
     password = document.querySelector(".passwordInput").value;
     
-    if(usuarioRegistrado(usuario) && passwordResgistrada(password)){
+    if(usuarioRegistrado(usuario) && passwordResgistrada(password) ){
         //Aca deberia poner el link a otra seccion permitiendo ingresar al sitio si es true
         // pedir los datos de nuevo si es false
         alert('El usuario puede ingresar')

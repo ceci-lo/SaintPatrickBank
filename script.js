@@ -5,9 +5,9 @@ let passwordArray = [];
 
 let boton = document.getElementsByClassName("btnLogin");
 
-boton[0].addEventListener("click", leer);
-boton[0].addEventListener("click", cargarJson);
 
+boton[0].addEventListener("click", cargarJson);
+boton[0].addEventListener("click", leer);
 /** Trae los usuarios del Json */
 
 
@@ -26,18 +26,7 @@ function cargarJson () {
   
 }
 
-function leer  () {
-    usuario = document.querySelector(".emailInput").value ;
-    password = document.querySelector(".passwordInput").value;
-    
-    if(usuarioRegistrado(usuario)){
-        //Aca deberia poner el link a otra seccion permitiendo ingresar al sitio si es true
-        // pedir los datos de nuevo si es false
-        alert('El usuario es correcto')
-    }else {
-        alert('ingrese los datos nuevamente');
-    }
-}
+
 
 
 
@@ -57,5 +46,34 @@ function  usuarioRegistrado(usuario){
     return usuarioEncontrado;
 }
 
+/** Busca la conseña del JSON y la compara con la que puso el usuario
+ * parametro password que pone el usuario
+ * retorna booleano 
+ */
+const passwordResgistrada = (password) => {
+    let passwordEncontrada = false;
+
+    for (let i = 0 ; i < passwordArray.length; i++){
+        if(password == passwordArray[i]){
+            passwordEncontrada = true;
+        }
+    }
+    return passwordEncontrada;
+}
+
+
+
+function leer  () {
+    usuario = document.querySelector(".emailInput").value ;
+    password = document.querySelector(".passwordInput").value;
+    
+    if(usuarioRegistrado(usuario) && passwordResgistrada(password)){
+        //Aca deberia poner el link a otra seccion permitiendo ingresar al sitio si es true
+        // pedir los datos de nuevo si es false
+        alert('El usuario puede ingresar')
+       }else {
+         alert('ingrese los datos nuevamente, el usuario o conseña es incorrecto');
+     }
+}
 
 // https://www.youtube.com/watch?v=xqBvtvXh9Z4

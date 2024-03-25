@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body class="home-body">
 
     <nav class="navbar bg-body-tertiary">
         <div class="container">
@@ -26,20 +26,23 @@
         </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-             <!--Opciones bancarias-->
-            <div class="col-4 lateral">
-               
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Ver saldo</a><!--poner el sldo que esta en el json segun la tarjeta-->
+    <div class="container home-box-1">
+        <div class="row home-box-1-1">
+            <!--Opciones bancarias-->
+            <div class="col-4 home-box-2 lateral-izq opacity-75">
 
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Tranferencia</a>
-                  </div>
-                                    
+                <div class="list-group   list-group-flush lista-enlaces">
+                    <a href="#" class=" list-group-item  enlace ">Ver
+                        saldo</a><!--poner el sldo que esta en el json segun la tarjeta-->
+                    <a href="#" class=" list-group-item ">Tranferencia</a>
+                    <a href="#" class=" list-group-item " aria-disabled="true">Movimiento</a>
+                    <a href="#" class=" list-group-item " aria-disabled="true">Prestamo</a>
+                </div>
+
             </div>
-            <div class="col-8">
-                <!--Imagen y datos personales-->
+            <!--Imagen y datos personales-->
+            <div class="col-8 home-box-2 lateral-der ">
+
                 <div class="container ">
                     <div class="row">
                         <img class="col-6 offset-6 border border-2 rounded-circle  imagenPersona"
@@ -48,6 +51,23 @@
                     </div>
                     <div class="row">
                         <h1 class="col-6 offset-5">!Hola, Fulanito¡</h1> <!--poner nombre de la persona-->
+                    </div>
+                    <div class="row  cuerpo-card ">
+                        <div class="col-sm-6 mb-3 mb-sm-0 offset-4">
+                            <div class="card cuerpo-card-2">
+                                <div class="card-body">
+                                    <div class="card-number">
+                                        <h5 class="card-title">Numero Tarjerta</h5>
+                                        <p><span>XX-XXXX</span></p>
+                                    </div>
+                                    <div class="card-saldo">
+                                        <h6 class="card-subtitle"><span> Saldo:</span> </h6>
+                                        <p>$XXXX </p>
+                                    </div>
+                                    <a href="#" class="offset-5 btn btn-success card-btn">Ver mas</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

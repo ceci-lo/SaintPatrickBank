@@ -44,15 +44,49 @@ body{
     height: 100%;
 }
 
+/*estilos Home */
+.home-body{ 
+    background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
+}
 .imagenPersona{
    box-shadow:0 6px 6px rgba(0, 0, 0, 0.1);
     width: 150px !important;
     height: 150px;
 
 }
-.lateral {
-    background-color: #fff3cd;
-    opacity: 50%;
+
+.home-box-1{
+    padding: 10px;
+    margin-left: 0px !important;
+    height: 850px;
+}
+.home-box-1-1{
+    
+    height: 850px;;
+}
+.lateral-izq{
+    background-color: #fff;
+    opacity: .75;
+}
+.lista-enlaces :hover{
+    background-color: rgb(22, 77, 2);
+    color: #fff;
+    opacity: 100%;
+    font-size: 17px;
+}
+.cuerpo-card{
+    padding-top: 25px;
+    
+}
+.cuerpo-card-2{
+    box-shadow:0 6px 6px rgba(0, 0, 0, 0.1);
+}
+.card-number, .card-saldo{
+    display: flex;
+    justify-content: space-around;
+}
+.card-btn {
+    display: flow;
 }
 /*MEDIA QUERY
 

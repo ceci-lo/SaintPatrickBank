@@ -2,6 +2,8 @@
 let usuario;
 let usuarioArray = [];
 let passwordArray = [];
+
+ cargarJson();
 let usuarioNombre = [];
 let usuarioSaldo = [];
 
@@ -12,7 +14,6 @@ boton[0].addEventListener("click", cargarJson);
 cargarJson();
 boton[0].addEventListener("click", leer);
 /** Trae los usuarios del Json */
-
 
 function cargarJson() {
     fetch('../tarjetas.json')
@@ -26,6 +27,7 @@ function cargarJson() {
                 passwordArray.push(usuario.password);
                 usuarioNombre.push(usuario.nombre);
                 usuarioSaldo.push(usuario.saldo);
+               
             })      
            
         })
@@ -68,10 +70,12 @@ const passwordResgistrada = (password) => {
 function leer() {
     usuario = document.querySelector(".emailInput").value;
     password = document.querySelector(".passwordInput").value;
+    flag = false;
 
     if (usuarioRegistrado(usuario) && passwordResgistrada(password)) {
         
             window.location.href = "home.html";
+           flag = true;
     } else {
        
         let alerta = document.createElement('p');
@@ -84,6 +88,17 @@ function leer() {
 
         padre[0].appendChild(alerta);        
     }
+    return true;
+}
+
+
+//Se Compara nombre y saldo con los datos de Usuario y contraseña
+//params
+//return
+
+const mostrarDatos = () => {
+
+
 }
 
 // https://www.youtube.com/watch?v=xqBvtvXh9Z4

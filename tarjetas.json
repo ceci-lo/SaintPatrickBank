@@ -3,28 +3,35 @@
         "id":1,
         "usuario": 4546857418565565,
         "password":4345,
-        "saldo": 40555
+        "saldo": 40555,
+        "nombre": "Patricio"
     },
     {   "id":2,
         "usuario": 5595345899897125,
         "password":1595,
-        "saldo": 43566
+        "saldo": 43566,
+        "nombre": "Ana"
+
     }, 
     {   "id": 3,
         "usuario": 4858669658871578,
         "password":1234,
-        "saldo": 23
+        "saldo": 23,
+        "nombre": "Pablo"
+
     },
     {
         "id": 4,
         "usuario": 5854665625871547,
         "password":4345,
-        "saldo": 300
+        "saldo": 300,
+        "nombre": "Soledad"
     },
     {
         "id": 5,
         "usuario": 4546989623571478,
         "password": 23,
-        "saldo": 35621
+        "saldo": 35621,
+        "nombre": "Marta"
     }
 ]

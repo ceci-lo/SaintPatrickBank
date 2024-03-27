@@ -66,11 +66,24 @@ function leer() {
     password = document.querySelector(".passwordInput").value;
 
     if (usuarioRegistrado(usuario) && passwordResgistrada(password)) {
-        //Aca deberia poner el link a otra seccion permitiendo ingresar al sitio si es true
         // pedir los datos de nuevo si es false
             window.location.href = "home.html";
     } else {
-        alert('ingrese los datos nuevamente, el usuario o conseña es incorrecto');
+       
+        let alerta = document.createElement('p');
+        let padre = document.getElementsByClassName('padre');
+        alerta.innerText = 'Usuario o Contraseña incorrecta por favor, Ingresar nuevamente los datos';
+        alerta.style.color = 'white';
+        alerta.style.backgroundColor = 'red';
+        alerta.style.border = '2px solid red';
+        alerta.style.marginTop= '10px';
+        alerta.style.borderRadius = '5px';
+
+        
+
+
+
+        padre[0].appendChild(alerta);        
     }
 }
 

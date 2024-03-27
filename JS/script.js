@@ -68,7 +68,7 @@ function leer() {
     if (usuarioRegistrado(usuario) && passwordResgistrada(password)) {
         //Aca deberia poner el link a otra seccion permitiendo ingresar al sitio si es true
         // pedir los datos de nuevo si es false
-        alert('El usuario puede ingresar');
+            window.location.href = "home.html";
     } else {
         alert('ingrese los datos nuevamente, el usuario o conseña es incorrecto');
     }

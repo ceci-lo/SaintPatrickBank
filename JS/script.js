@@ -2,6 +2,8 @@
 let usuario;
 let usuarioArray = [];
 let passwordArray = [];
+let usuarioNombre = [];
+let usuarioSaldo = [];
 
 let boton = document.getElementsByClassName("btnLogin");
 
@@ -22,6 +24,8 @@ function cargarJson() {
             data.forEach(function (usuario) {
                 usuarioArray.push(usuario.usuario);
                 passwordArray.push(usuario.password);
+                usuarioNombre.push(usuario.nombre);
+                usuarioSaldo.push(usuario.saldo);
             })      
            
         })
@@ -72,7 +76,7 @@ function leer() {
        
         let alerta = document.createElement('p');
         let padre = document.getElementsByClassName('padre');
-        
+
         alerta.innerText = 'Usuario o Contraseña incorrecta. Ingresar nuevamente los datos';
         alerta.style.marginTop = '10px';
         alerta.classList.add("alert");

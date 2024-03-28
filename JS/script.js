@@ -1,11 +1,13 @@
 /** Validar usuario correcto*/
-let usuario;
+let usuario, numero = -1;
 let usuarioArray = [];
 let passwordArray = [];
+let idUsuario = [];
 
  cargarJson();
 let usuarioNombre = [];
 let usuarioSaldo = [];
+
 
 let boton = document.getElementsByClassName("btnLogin");
 
@@ -13,6 +15,7 @@ let boton = document.getElementsByClassName("btnLogin");
 boton[0].addEventListener("click", cargarJson);
 cargarJson();
 boton[0].addEventListener("click", leer);
+boton[0].addEventListener("onchange", mostrarDatos);
 /** Trae los usuarios del Json */
 
 function cargarJson() {
@@ -27,7 +30,7 @@ function cargarJson() {
                 passwordArray.push(usuario.password);
                 usuarioNombre.push(usuario.nombre);
                 usuarioSaldo.push(usuario.saldo);
-               
+                idUsuario.push(usuario.id);     
             })      
            
         })
@@ -38,12 +41,13 @@ function cargarJson() {
  * return boolean 
  * parametro usuario puesto por el usuario 
  */
+
 function usuarioRegistrado(usuario) {
     let usuarioEncontrado = false;
 
-    for (let i = 0; i < usuarioArray.length; i++) {
+    for (let i = 0 ; i < usuarioArray.length; i++) {
         if (usuario == usuarioArray[i]) {
-            usuarioEncontrado = true;
+            usuarioEncontrado = true;           
         }
     }
 
@@ -64,20 +68,19 @@ const passwordResgistrada = (password) => {
     }
     return passwordEncontrada;
 }
-
-
+let id 
 
 function leer() {
+ 
     usuario = document.querySelector(".emailInput").value;
-    password = document.querySelector(".passwordInput").value;
-    flag = false;
+    let password = document.querySelector(".passwordInput").value;
 
     if (usuarioRegistrado(usuario) && passwordResgistrada(password)) {
+        id = usuarioArray.indexOf(usuario);
         
-            window.location.href = "home.html";
-           flag = true;
+        window.location.href = "home.html";
     } else {
-       
+
         let alerta = document.createElement('p');
         let padre = document.getElementsByClassName('padre');
 
@@ -86,19 +89,24 @@ function leer() {
         alerta.classList.add("alert");
         alerta.classList.add("alert-danger");
 
-        padre[0].appendChild(alerta);        
+        padre[0].appendChild(alerta);
     }
-    return true;
+
 }
+
 
 
 //Se Compara nombre y saldo con los datos de Usuario y contraseña
 //params
 //return
 
-const mostrarDatos = () => {
-
-
+let nombre= "", saldo = 0;
+const mostrarDatos = (numeroIndex) => {
+        nombre = usuarioNombre[numeroIndex];
+        saldo = usuarioSaldo[numeroIndex];
+   let saludo =  document.getElementById("saludo");
+   saludo.innerText = `!Hola, ${nombre}¡`;
 }
+
 
 // https://www.youtube.com/watch?v=xqBvtvXh9Z4

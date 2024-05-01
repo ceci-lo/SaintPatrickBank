@@ -11,7 +11,7 @@ let usuarioSaldo = [];
 
 let boton = document.getElementsByClassName("btnLogin");
 
-if(boton == true){
+if(boton){
     boton[0].addEventListener("click", cargarJson);
     cargarJson();
     boton[0].addEventListener("click", leer);
@@ -46,13 +46,14 @@ function cargarJson() {
  * return boolean 
  * parametro usuario puesto por el usuario 
  */
-
+let idUsuario = 0;
 function usuarioRegistrado(usuario) {
     let usuarioEncontrado = false;
 
     for (let i = 0 ; i < usuarioArray.length; i++) {
         if (usuario == usuarioArray[i]) {
-            usuarioEncontrado = true;           
+            usuarioEncontrado = true;   
+
         }
     }
 
@@ -99,7 +100,7 @@ function leer() {
 
 }
 
-
+console.log('id : ', id);
 
 //Se Compara nombre y saldo con los datos de Usuario y contraseña
 //params

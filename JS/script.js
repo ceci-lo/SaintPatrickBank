@@ -2,7 +2,7 @@
 let usuario, numero = -1;
 let usuarioArray = [];
 let passwordArray = [];
-let idUsuario = [];
+let idUsuarios = [];
 
  cargarJson();
 let usuarioNombre = [];
@@ -34,7 +34,7 @@ function cargarJson() {
                 passwordArray.push(usuario.password);
                 usuarioNombre.push(usuario.nombre);
                 usuarioSaldo.push(usuario.saldo);
-                idUsuario.push(usuario.id);     
+                idUsuarios.push(usuario.id);     
                
             })      
            
@@ -105,22 +105,18 @@ function leer() {
 //params
 //return
 
-const mostrarDatos = (numeroIndex) => {
-    let saldo = 0;
-    let nombre = document.getElementsByTagName('h1')[0];
-    let tarjeta = document.getElementsByTagName('h5')[0];
+const mostrarDatos = (idUsuario) => {
+    let saldoHTML = document.getElementsByTagName('p')[1];;
+    let nombreHTML = document.getElementsByTagName('h1')[0];
+    let tarjetaHTML = document.getElementsByTagName('p')[0];
 
-        nombre = usuarioNombre[numeroIndex];
-        console.log(usuarioNombre[numeroIndex])
-        saldo = usuarioSaldo[numeroIndex];
-   let saludo =  document.getElementById("saludo");
-   saludo.innerText = `!Hola, ${nombre}¡`;
+    saldoHTML.innerText = usuarioSaldo[idUsuario - 1];
+    nombreHTML.innerHTML = usuarioNombre[idUsuario - 1];
+    tarjetaHTML.innerHTML = usuarioArray[idUsuario - 1 ];
+
+   
 }
 
-
-console.log('nombre ', usuarioNombre)
-nombre.innerText = usuarioNombre[0];
-tarjeta.innerText = usuarioArray[0];
 
 
 

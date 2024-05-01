@@ -11,11 +11,15 @@ let usuarioSaldo = [];
 
 let boton = document.getElementsByClassName("btnLogin");
 
+if(boton == true){
+    boton[0].addEventListener("click", cargarJson);
+    cargarJson();
+    boton[0].addEventListener("click", leer);
+//boton[0].addEventListener("onchange", mostrarDatos);
 
-boton[0].addEventListener("click", cargarJson);
-cargarJson();
-boton[0].addEventListener("click", leer);
-boton[0].addEventListener("onchange", mostrarDatos);
+}
+
+
 /** Trae los usuarios del Json */
 
 function cargarJson() {
@@ -31,6 +35,7 @@ function cargarJson() {
                 usuarioNombre.push(usuario.nombre);
                 usuarioSaldo.push(usuario.saldo);
                 idUsuario.push(usuario.id);     
+               
             })      
            
         })
@@ -100,13 +105,36 @@ function leer() {
 //params
 //return
 
-let nombre= "", saldo = 0;
 const mostrarDatos = (numeroIndex) => {
+    let saldo = 0;
+    let nombre = document.getElementsByTagName('h1')[0];
+    let tarjeta = document.getElementsByTagName('h5')[0];
+
         nombre = usuarioNombre[numeroIndex];
+        console.log(usuarioNombre[numeroIndex])
         saldo = usuarioSaldo[numeroIndex];
    let saludo =  document.getElementById("saludo");
    saludo.innerText = `!Hola, ${nombre}¡`;
 }
 
 
+console.log('nombre ', usuarioNombre)
+nombre.innerText = usuarioNombre[0];
+tarjeta.innerText = usuarioArray[0];
+
+
+
+// let div = document.getElementsByTagName('div')[8];
+
+//     const dns = new XMLHttpRequest();
+//     dns.open('GET', 'tarjetas.json',true);
+//     dns.send();
+// console.log('dns ',dns)
+//     if(dns.status === 200){
+//         //perfect
+//         let respuesta  = dns.response 
+//         console.log(respuesta);
+//         div.innerHTML = respuesta;
+//     }
+   
 // https://www.youtube.com/watch?v=xqBvtvXh9Z4

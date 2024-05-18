@@ -1,5 +1,6 @@
 /** Validar usuario correcto*/
-let usuario, numero = -1;
+let usuarios =[]; 
+numero = -1;
 let usuarioArray = [];
 let passwordArray = [];
 let idUsuarios = [];
@@ -9,37 +10,66 @@ let usuarioNombre = [];
 let usuarioSaldo = [];
 
 
+
 let boton = document.getElementsByClassName("btnLogin");
+let boton2 = document.getElementById('btnLogin');
+    boton2.addEventListener("load", cargarJson);
+if(boton[Ñ]){
+    boton2.addEventListener("click", e => {
+        e.preventDefault();
 
-if(boton){
-    boton[0].addEventListener("click", cargarJson);
-    cargarJson();
-    boton[0].addEventListener("click", leer);
-//boton[0].addEventListener("onchange", mostrarDatos);
 
+        let usuario = document.querySelector(".emailInput").value;
+         let password = document.querySelector(".passwordInput").value;
+    
+        if (usuarioRegistrado(usuario) && passwordResgistrada(password)) {
+            
+            
+            window.location.href = "home.html";
+            console.log('todo correcto')
+            
+        } else {
+    
+            let alerta = document.createElement('p');
+            let padre = document.getElementsByClassName('padre');
+    
+            alerta.innerText = 'Usuario o Contraseña incorrecta. Ingresar nuevamente los datos';
+            alerta.style.marginTop = '10px';
+            alerta.classList.add("alert");
+            alerta.classList.add("alert-danger");
+    
+            padre[0].appendChild(alerta);
+        }
+    
+        
+    });
+    
 }
+
 
 
 /** Trae los usuarios del Json */
 
 function cargarJson() {
+    try{
+
     fetch('../tarjetas.json')
-        .then(function (respuesta) { // me conecta con el json
-            return respuesta.json();
+        .then(response =>{
+            if(!response.ok) throw 'Error estatus: ' + response.status
+            return response.json()
         })
-        .then(function (data) { //me trae los datos de json
-
-            data.forEach(function (usuario) {
-                usuarioArray.push(usuario.usuario);
-                passwordArray.push(usuario.password);
-                usuarioNombre.push(usuario.nombre);
-                usuarioSaldo.push(usuario.saldo);
-                idUsuarios.push(usuario.id);     
+            .then(respuesta => { //me trae los datos de json
+            
+                respuesta.forEach(usuario => {
+                    usuarioArray.push(usuario.usuario);
+                    passwordArray.push(usuario.password);
+                })
+                usuarios.push(respuesta);
                
-            })      
-           
-        })
+            })
 
+    }
+    catch(error){console.error('Error en fetch ')}
 }
 
 /** Busca un usuario de JSON y compara con lo que puso el usuario
@@ -47,6 +77,7 @@ function cargarJson() {
  * parametro usuario puesto por el usuario 
  */
 let idUsuario = 0;
+
 function usuarioRegistrado(usuario) {
     let usuarioEncontrado = false;
 
@@ -74,52 +105,60 @@ const passwordResgistrada = (password) => {
     }
     return passwordEncontrada;
 }
+
 let id 
 
-function leer() {
+// function leer() {
  
-    usuario = document.querySelector(".emailInput").value;
-    let password = document.querySelector(".passwordInput").value;
+//     let usuario = document.querySelector(".emailInput").value;
+//     let password = document.querySelector(".passwordInput").value;
 
-    if (usuarioRegistrado(usuario) && passwordResgistrada(password)) {
-        id = usuarioArray.indexOf(usuario);
+//     if (usuarioRegistrado(usuario) && passwordResgistrada(password)) {
         
-        window.location.href = "home.html";
-    } else {
+        
+//         window.location.href = "home.html";
+        
+//     } else {
 
-        let alerta = document.createElement('p');
-        let padre = document.getElementsByClassName('padre');
+//         let alerta = document.createElement('p');
+//         let padre = document.getElementsByClassName('padre');
 
-        alerta.innerText = 'Usuario o Contraseña incorrecta. Ingresar nuevamente los datos';
-        alerta.style.marginTop = '10px';
-        alerta.classList.add("alert");
-        alerta.classList.add("alert-danger");
+//         alerta.innerText = 'Usuario o Contraseña incorrecta. Ingresar nuevamente los datos';
+//         alerta.style.marginTop = '10px';
+//         alerta.classList.add("alert");
+//         alerta.classList.add("alert-danger");
 
-        padre[0].appendChild(alerta);
-    }
+//         padre[0].appendChild(alerta);
+//     }
 
-}
+// }
 
-console.log('id : ', id);
+
 
 //Se Compara nombre y saldo con los datos de Usuario y contraseña
 //params
 //return
 
-const mostrarDatos = (idUsuario) => {
-    let saldoHTML = document.getElementsByTagName('p')[1];;
-    let nombreHTML = document.getElementsByTagName('h1')[0];
-    let tarjetaHTML = document.getElementsByTagName('p')[0];
-
-    saldoHTML.innerText = usuarioSaldo[idUsuario - 1];
-    nombreHTML.innerHTML = usuarioNombre[idUsuario - 1];
-    tarjetaHTML.innerHTML = usuarioArray[idUsuario - 1 ];
-
-   
+const mostrarDatos = () => {
+    //Comienzo de for 
+for(let i= 0; i < usuarios.length; i++){
+    console.log(usuarios[i])
 }
 
 
+//se toman datos y se muestran en html
+    let saldoHTML = document.getElementsByTagName('p')[1];
+    let nombreHTML = document.getElementsByTagName('h1')[0];
+    let tarjetaHTML = document.getElementsByTagName('p')[0];
 
+    saldoHTML.innerText = usuarioSaldo[idUsuario];
+    nombreHTML.innerHTML = usuarioNombre[idUsuario];
+    tarjetaHTML.innerHTML = usuarioArray[idUsuario];   
+}
+
+console.log('llegue  a linea 131')
+
+ 
 
 // let div = document.getElementsByTagName('div')[8];
 
